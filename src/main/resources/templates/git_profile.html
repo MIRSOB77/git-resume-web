@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>User Git profile </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/thvsjsp.css" th:href="@{/css/thvsjsp.css}"/>
+</head>
+
+<body>
+
+<h2>Profile</h2>
+
+    <fieldset>
+        <div id="userArea">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Login:</td>
+                        <td th:text="${data.username}"></td>
+                    </tr>
+                    <tr>
+                        <td>Website:</td>
+                        <td th:text="${data.usersWebsite}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="reposArea">
+
+            <table>
+                <tbody>
+                    <tr><td><b>Repository listing:</b></td><tr>
+
+                    <tr th:each="repo : ${data.repos}">
+                        <td th:text="${repo.name}"></td>
+                        <td th:text="${repo.url}"></td>
+                        <td th:text="${repo.description}"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <div id="languagesArea">
+
+            <table>
+                <tbody>
+                    <tr><td><b>Language ratios:</b></td><tr>
+
+                    <tr th:each="lang : ${data.languages}">
+                        <td th:text="${lang.name}"></td>
+                        <td th:text="${lang.value}"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</body>
+
+</html>   
