@@ -25,7 +25,7 @@ public class GitHubClientImpl implements GitHubClient{
     @Autowired
     RestTemplate restTemplate;
 
-    // header use in every operation
+    // header used in every operation
     HttpHeaders defaultHeader;
 
     public static final String API_PATH_USERS = "/users/{user}";

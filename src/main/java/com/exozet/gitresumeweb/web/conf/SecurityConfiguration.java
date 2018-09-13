@@ -21,7 +21,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
             
             .csrf().disable()
-                .authorizeRequests().antMatchers(GET, "/health").permitAll() .and()
+                .authorizeRequests().antMatchers(GET, "**").permitAll() .and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 

@@ -30,9 +30,10 @@ public class GitHubJCABIService {
         GitHubProperties.GitClientProps jcabiProps = gitHubProperties.getJcabi();
 
         if (!(jcabiProps.getLogin().isEmpty() || jcabiProps.getOAuth().isEmpty())) {
-            gitHub = GitHub.connect(jcabiProps.getLogin(), jcabiProps.getOAuth());
+
+            gitHub = GitHub.connectToEnterpriseWithOAuth(gitHubProperties.getUrlString(),jcabiProps.getLogin(), jcabiProps.getOAuth());
         } else {
-            gitHub = GitHub.connectAnonymously();
+            gitHub = GitHub.connectToEnterpriseAnonymously(gitHubProperties.getUrlString());
         }
     }
 
