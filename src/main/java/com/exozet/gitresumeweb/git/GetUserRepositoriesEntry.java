@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 import lombok.Data;
 
+/**
+   Automatically generated java code by online json<->java transformer
+*/
 @Data
 public class GetUserRepositoriesEntry extends GitBaseResponse {
         @JsonProperty("id")
