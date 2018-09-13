@@ -1,6 +1,5 @@
 package com.exozet.gitresumeweb;
 
-import com.exozet.gitresumeweb.web.view.UserProfileView;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import java.io.IOException;

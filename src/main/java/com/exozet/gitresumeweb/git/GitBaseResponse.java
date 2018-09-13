@@ -1,4 +1,4 @@
-package com.exozet.gitresumeweb.domain;
+package com.exozet.gitresumeweb.git;
 
 public abstract class GitBaseResponse {
 

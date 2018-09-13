@@ -1,4 +1,4 @@
-package com.exozet.gitresumeweb.domain;
+package com.exozet.gitresumeweb.git;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,7 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
-public class GitRepositoryResponse extends GitBaseResponse {
+public class GetUserRepositoriesEntry extends GitBaseResponse {
         @JsonProperty("id")
         private Integer id;
         @JsonProperty("node_id")

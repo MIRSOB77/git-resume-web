@@ -11,14 +11,22 @@
 
 <body>
 
-<h2>This is a Thymeleaf template</h2>
+<h2>Search for git users</h2>
 
 <form name="search_form" action="#" th:object="${search}" th:action="@{/profile}" th:method="POST">
 
     <fieldset>
 
         <div>
-            <input type="text" name="usernameTxt" id="usernameTxt" />
+            <fieldset>
+
+                <input type="text" name="usernameTxt" id="usernameTxt" />
+
+                <label for="repositories">Show repositories</label>
+                <input type="checkbox" id="repositories" name="repositories" value="true" checked />
+                <label for="repositories">Show language ratios</label>
+                <input  id="languageRatios" name="languageRatios" type="checkbox" checked value="true"/>
+            </fieldset>
         </div>
 
         <div class="submit">

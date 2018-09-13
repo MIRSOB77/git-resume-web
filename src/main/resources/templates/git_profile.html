@@ -29,12 +29,13 @@
             </table>
         </div>
 
-        <div id="reposArea">
+
+        <div id="reposArea" th:if="${data.repos != null}" >
 
             <table>
                 <tbody>
                     <tr><td><b>Repository listing:</b></td><tr>
-
+                    <tr><td>Total:</td><td th:text="${data.countRepos}"/></tr>
                     <tr th:each="repo : ${data.repos}">
                         <td th:text="${repo.name}"></td>
                         <td th:text="${repo.url}"></td>
@@ -59,6 +60,33 @@
 
                 </tbody>
             </table>
+        </div>
+
+        <div id="buildEnvs">
+
+            <table>
+                <tbody>
+                    <tr><td><b>Build environments:</b></td><tr>
+
+                    <tr th:each="env : ${data.buildEnvironments}">
+                        <td th:text="${env.name}"></td>
+                        <td th:text="${env.count}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="timeStats">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Project average duration:</td>
+                        <td th:text="${data.avgProjectDuration}"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
         </div>
     </fieldset>
 </body>

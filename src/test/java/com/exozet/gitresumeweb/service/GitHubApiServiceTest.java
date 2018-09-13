@@ -1,7 +1,7 @@
 package com.exozet.gitresumeweb.service;
 
 import com.exozet.gitresumeweb.TestUtils;
-import com.exozet.gitresumeweb.domain.GitUserResponse;
+import com.exozet.gitresumeweb.git.GetUserResponse;
 import com.exozet.gitresumeweb.exception.InternalException;
 import com.exozet.gitresumeweb.exception.UserNotFoundException;
 import com.google.gson.Gson;
@@ -11,27 +11,26 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.json.GsonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GithubApiServiceTest {
+public class GitHubApiServiceTest {
 
     @Autowired
-    GithubApiService githubApiService;
+    GitHubApiService gitHubApiService;
 
     @MockBean
-    GitHubClient gitHubClient;
+    GitHubClientImpl gitHubClient;
 
     @Test
     public void getUserProfile_Success() throws UserNotFoundException, IOException, InternalException {
          Mockito.when(gitHubClient.getUser(anyString())).
-                 thenReturn(new Gson().fromJson(TestUtils.getResource("gitmocks/get_user.json"), GitUserResponse.class));
+                 thenReturn(new Gson().fromJson(TestUtils.getResource("gitmocks/get_user.json"), GetUserResponse.class));
 
-         githubApiService.getUserProfile("testuser");
+         gitHubApiService.getUserProfile("testuser");
 
     }
 
@@ -39,7 +38,7 @@ public class GithubApiServiceTest {
     public void getUserProfile_Failed() throws UserNotFoundException, IOException, InternalException {
         Mockito.when(gitHubClient.getUser(anyString())).thenThrow(UserNotFoundException.class);
         
-        githubApiService.getUserProfile("testuser");
+        gitHubApiService.getUserProfile("testuser");
     }
     
 }
